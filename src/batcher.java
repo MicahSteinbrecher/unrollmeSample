@@ -19,6 +19,10 @@ public class batcher {
 	int objIndex;
 	ArrayList<Object> objBatch = new ArrayList<Object>();
 	
+	/*The "synchronized" keyword makes sure that only one thread can access the method at a time. 
+	*This avoids scenarios where two threads try to access a single batcher instance simultaneously,
+	*which causes the index to increment incorrectly.
+	*/
 	synchronized ArrayList<Object> submit(Object a) {
 		
 		objBatch.add(a);
